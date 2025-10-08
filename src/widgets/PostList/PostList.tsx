@@ -1,33 +1,49 @@
 import React from 'react';
+import { useState } from 'react';
 import { PostCard } from '../../entities/post/ui/PostCard';
 import type { Post } from '../../entities/post/ui/PostCard';
+import { PostFilter } from '../../features/PostLengthFilter/filterByLength';
 import './PostList.css';
 
 const mockPosts: Post[] = [
   {
     id: 1,
-    title: 'Первый пост-заглушка',
+    title: 'О',
     body: 'Это пример поста для демонстрации работы компонентов 1.',
   },
   {
     id: 2,
-    title: 'Второй пост-заглушка',
+    title: 'ДД',
     body: 'Это пример поста для демонстрации работы компонентов 2.',
   },
   {
     id: 3,
-    title: 'Второй пост-заглушка',
+    title: 'ТРИ',
+    body: 'Это пример поста для демонстрации работы компонентов 3.',
+  },
+  {
+    id: 4,
+    title: 'ЧЧЧЧ',
     body: 'Это пример поста для демонстрации работы компонентов 3.',
   }
 ];
 
 export const PostList: React.FC = () => {
+  const [maxTitleLength, setMaxTitleLength] = useState<number | null>(null);
+
+  const filteredPosts = maxTitleLength
+    ? mockPosts.filter((post) => post.title.length <= maxTitleLength)
+    : mockPosts;
+
   return (
     <div className="post-list">
       <h2>Список постов (заглушки)</h2>
-      {mockPosts.map((post) => (
-        <PostCard key={post.id} post={post} />
-      ))}
+      <PostFilter onFilterChange={setMaxTitleLength} />
+      {filteredPosts.length > 0 ? (
+        filteredPosts.map((post) => <PostCard key={post.id} post={post} />)
+      ) : (
+        <p>Нет постов, соответствующих фильтру.</p>
+      )}
     </div>
   );
 };
