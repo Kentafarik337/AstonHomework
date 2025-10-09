@@ -1,32 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { PostCard } from '../../entities/post/ui/PostCard';
-import type { Post } from '../../entities/post/ui/PostCard';
 import { PostFilter } from '../../features/PostLengthFilter/filterByLength';
+import { mockPosts } from './DefPostList';
 import './PostList.css';
-
-const mockPosts: Post[] = [
-  {
-    id: 1,
-    title: 'О',
-    body: 'Это пример поста для демонстрации работы компонентов 1.',
-  },
-  {
-    id: 2,
-    title: 'ДД',
-    body: 'Это пример поста для демонстрации работы компонентов 2.',
-  },
-  {
-    id: 3,
-    title: 'ТРИ',
-    body: 'Это пример поста для демонстрации работы компонентов 3.',
-  },
-  {
-    id: 4,
-    title: 'ЧЧЧЧ',
-    body: 'Это пример поста для демонстрации работы компонентов 3.',
-  }
-];
 
 export const PostList: React.FC = () => {
   const [maxTitleLength, setMaxTitleLength] = useState<number | null>(null);

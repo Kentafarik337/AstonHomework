@@ -1,17 +1,17 @@
-import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '../shared/lib/theme/ThemeProvider';
-import { MainLayout } from '../shared/layouts/MainLayout';
-import { PostList } from '../widgets/PostList/PostList';
 import './App.css'
+import { AppRouter } from './providers/router/AppRouter';
 
 
 function App() {
   return (
-    <ThemeProvider>
-      <MainLayout>
-        <PostList />
-      </MainLayout>
-    </ThemeProvider>
+  <ThemeProvider>
+    <BrowserRouter>
+    <AppRouter>
+    </AppRouter>
+    </BrowserRouter>
+  </ThemeProvider>
   );
 }
 
