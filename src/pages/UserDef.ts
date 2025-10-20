@@ -42,19 +42,27 @@ export interface Todo {
   userId: number;
   todoId: number;
   title: string;
+  status: boolean;
 }
 
 export const todo: Todo[] = [
-  { userId: 1, todoId: 1, title: "Пляж"},
-  { userId: 1, todoId: 2, title: "Горы"},
+  { userId: 1, todoId: 1, title: "Пляж", status: false },
+  { userId: 1, todoId: 2, title: "Горы", status: false },
   
-  { userId: 2, todoId: 3, title: "Семейный ужин"},
-  { userId: 2, todoId: 4, title: "Праздник"},
+  { userId: 2, todoId: 3, title: "Семейный ужин", status: false },
+  { userId: 2, todoId: 4, title: "Праздник", status: false },
   
-  { userId: 3, todoId: 5, title: "Лес"},
-  { userId: 3, todoId: 6, title: "Река"},
+  { userId: 3, todoId: 5, title: "Лес", status: false },
+  { userId: 3, todoId: 6, title: "Река", status: false },
   
-  { userId: 4, todoId: 7, title: "Париж"},
-  { userId: 5, todoId: 8, title: "Рисование"},
-  { userId: 6, todoId: 9, title: "Арт проект"}
+  { userId: 4, todoId: 7, title: "Париж", status: false },
+  { userId: 5, todoId: 8, title: "Рисование", status: false },
+  { userId: 6, todoId: 9, title: "Арт проект", status: false }
 ];
+
+
+export interface User {
+  id: number;
+  name: string;
+  username: string;
+}
